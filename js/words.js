@@ -1,0 +1,26 @@
+export let WORDS = [
+    "Cama",
+    "Perro",
+    "Alura",
+    "Challenge",
+    "Latam",
+    "Oracle",
+    "Colombia",
+    "Casa",
+    "Zapato",
+    "Calle",
+    "Xilofono",
+    "Puerta",
+    "Camara",
+    "Carro",
+    "Arboles",
+    "Plantas",
+    "Gato",
+    "Perro",
+    "Zanahoria",
+    "Ropa",
+    "Paises",
+    "Continentes",
+    "Camilla"
+];
+

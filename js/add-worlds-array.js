@@ -1,4 +1,4 @@
-import { world} from './worlds.js';
+import { WORDS } from './words.js';
 import { save} from './storage.js';
 
 import { validar_texto,mensajes }  from './validations.js';
@@ -18,10 +18,9 @@ document.addEventListener('DOMContentLoaded',event =>{
 
             let validator = validar_texto(texto);
              if(validator){
-                 world.push(texto);
-                 console.log(world);
+                WORDS.push(texto);
                  mensajes('Se agrego nueva palabra',section,'success');
-                save(world);
+                save(WORDS);
                  setTimeout(() =>{
                     
                      let origin = window.location.origin;
