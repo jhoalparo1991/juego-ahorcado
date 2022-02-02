@@ -60,9 +60,7 @@ header a img{
 footer{
     padding:10px;
     text-align:center;
-    bottom: 0;
-    position: fixed;
-    width: 100%;
+  
 }
 
 .message{
@@ -70,6 +68,7 @@ footer{
     display: block;
     font-size: 0.8em;
     color:rgb(141, 140, 140);
+    padding:10px;
 }
 .text{
     font-weight: 500;
@@ -104,6 +103,19 @@ main{
     text-transform: uppercase;
 }
 
+.form-control{
+    padding: 10px;
+    width: 100%;
+    display: block;
+    border:none;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.section-add{
+    width: 70%;
+}
+
 
 @media (max-width: 700px){
     .group-button{
@@ -118,3 +130,23 @@ main{
     }
 }
 
+.alert{
+    padding:5px;
+    margin: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    border-radius: 10px;
+}
+
+.alert-danger{
+    background: #faaeae;
+    border: 2px solid red;
+    color: red;
+}
+
+.alert-success{
+    background: #8bf78b;
+    border: 2px solid green;
+    color: green;
+}
