@@ -1,4 +1,5 @@
 import { show_data } from './storage.js';
+
 let arreglo = [];
 export function validar_texto(texto){
     let expression = /^[a-zA-Z]+$/;
@@ -38,6 +39,24 @@ export function mensajes(mensaje,contenedor,tipo='error'){
 
     setTimeout(() =>{
         p.remove();
-    },2000);
+    },3000);
+}
+
+export function mensajes_juego(mensaje,contenedor,tipo='perdio'){
+    let p = document.createElement('p');
+    p.textContent = mensaje;
+    if(tipo === 'perdio'){
+        p.classList.remove('green')
+        p.classList.add('red');
+    }else if(tipo === 'gano'){
+        p.classList.remove('red');
+        p.classList.add('green');
+    }
+    contenedor.appendChild(p);
+
+    setTimeout(() =>{
+        p.remove();
+        window.location.reload();
+    },5000);
 }
 
