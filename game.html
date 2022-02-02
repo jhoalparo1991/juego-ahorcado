@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ahorcado</title>
-    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/normalize.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link
       rel="stylesheet"
@@ -21,17 +21,21 @@
       </a>
     </header>
     <div class="container">
-      <main>
-          <canvas width="100%" height="100%"></canvas>
-         
-      </main>
-      <div class="group">
-        <p class="world" id="palabra"></p>
-        <p class="letters" id="letras"></p>
-       <div class="group-button">
-        <a href="game.html" class="btn btn-blue border-blue" id="nuevo">Nuevo juego</a>
-        <a href="index.html" class="btn btn-white border-blue" id="desistir">Desistir</a>
-       </div>
+      <canvas id="canva" width="400"></canvas>
+      <section class="status" id="status">
+        <p>Ganaste, <br> Felicidades</p>
+      </section>
+    </div>
+    <div class="group">
+      <p class="word" id="palabra"></p>
+      <p class="letters" id="letras"></p>
+      <div class="group-button">
+        <a href="game.html" class="btn btn-blue border-blue" id="nuevo"
+          >Nuevo juego</a
+        >
+        <a href="index.html" class="btn btn-white border-blue" id="desistir"
+          >Desistir</a
+        >
       </div>
     </div>
     <footer>
