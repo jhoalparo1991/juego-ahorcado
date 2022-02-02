@@ -1,4 +1,5 @@
-
+import { show_data } from './storage.js';
+let arreglo = [];
 export function validar_texto(texto){
     let expression = /^[a-zA-Z]+$/;
     if(expression.test(texto)){
@@ -15,6 +16,13 @@ export function validar_texto(texto){
     }  
 }
 
+export function sortear_palabra(){
+    let data = show_data();
+    let total = data.length;
+    let aleatorio = Math.floor(Math.random() * total);
+    let palabra = data.filter( p => p === data[aleatorio]);
+    return palabra.join('');
+}
 
 export function mensajes(mensaje,contenedor,tipo='error'){
     let p = document.createElement('p');
@@ -32,3 +40,4 @@ export function mensajes(mensaje,contenedor,tipo='error'){
         p.remove();
     },2000);
 }
+

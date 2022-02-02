@@ -1,4 +1,5 @@
-import { world,letras,numeros } from './worlds.js';
+import { world} from './worlds.js';
+import { save} from './storage.js';
 
 import { validar_texto,mensajes }  from './validations.js';
 
@@ -20,11 +21,12 @@ document.addEventListener('DOMContentLoaded',event =>{
                  world.push(texto);
                  console.log(world);
                  mensajes('Se agrego nueva palabra',section,'success');
-
+                save(world);
                  setTimeout(() =>{
-                    let origin = window.location.origin;
-                    window.location.assign(origin+'/game.html');
-                 },3000);
+                    
+                     let origin = window.location.origin;
+                     window.location.assign(origin+'/game.html');
+                    },3000);
              }else{
                  mensajes('Solo letras',section,'error');
              }
