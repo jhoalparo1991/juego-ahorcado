@@ -19,30 +19,23 @@ let arrPalabra = [];
 let palabra_sorteo;
 let contador = 0;
 let letrasErroneas = [];
+let convertPalabraGuiones;
 
 // Events
 document.addEventListener("DOMContentLoaded", () => {
   // Sortear palabra
   palabra_sorteo = sortear_palabra().toLowerCase();
   console.log(palabra_sorteo);
-  dibujar_guiones(palabra_sorteo);
-
+  // Convertir la palabra en guines
+  convertPalabraGuiones = palabra_sorteo.replace(/./g, '_');
+  palabra.textContent = convertPalabraGuiones;
+  // Mostrar base de la horca
   ahorcado(canva,contador);
   // Introducir letra
   introducir_letra();
 });
 
 // Functions
-function dibujar_guiones(palabra_sorteo) {
-  if (palabra_sorteo.length > 0) {
-    let arr = palabra_sorteo.split("");
-    arr.forEach((a) => {
-      arrGuiones.push(a);
-      guiones.push('_');
-      palabra.textContent += "_";
-    });
-  }
-}
 
 function introducir_letra() {
   window.onkeydown = (e) => {
@@ -114,22 +107,23 @@ function mostrarLetraIncorrecta(arr) {
 }
 
 
-function mostrarLetrasCorrectas(arr){
-  let le = arr.join('');
-  console.log(le);
-  let newArrPalabra = [];
-  if(!arrGuiones.includes(le)){
-    
-    //console.log(arr);
-    for(let i=0; i < arrGuiones.length; i++){
-      
-      for(let j=0; j< guiones.length; j++){
-        
+function mostrarLetrasCorrectas(palabra_final){
+let result;
+let posicionGuion;
+ guiones = convertPalabraGuiones.split('');
+  for(const sorteo in palabra_sorteo){
+    for(const final in palabra_final){
+      if(palabra_sorteo[sorteo] == palabra_final[final]){
+        posicionGuion = sorteo;
+        guiones[sorteo] = palabra_final[final];
       }
     }
-    //palabra.innerHTML = '';
-    //palabra.textContent = newArrPalabra;
+
+    palabra.innerHTML = '';
+    palabra.innerHTML = guiones.join('');
   }
+
 }
+
 
 

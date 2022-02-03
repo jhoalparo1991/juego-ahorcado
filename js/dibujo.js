@@ -18,7 +18,6 @@ export function ahorcado(canva, contador) {
     dibujar_piernas(ctx);
   }
 
-  console.log(ctx);
 }
 
 function dibujar_barra(ctx) {
