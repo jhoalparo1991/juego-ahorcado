@@ -5,13 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ahorcado</title>
-    <link rel="stylesheet" href="./css/normalize.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 <link rel="stylesheet" href="./css/generales.css" />
 <link rel="stylesheet" href="./css/game.css" />
     <link
@@ -52,10 +46,10 @@
       </div>
       <div class="row">
         <div class="col ">
-          <p class="text-center p-4 display-3 letter-spacing text-muted" id="palabra"></p>
-          <p class="text-center p-4 display-2 text-muted" id="letras" ></p>
-          <div class="position-relative">
-            <div class="btn-group position-absolute top-50 start-50 translate-middle">
+          <p class="text-center p-4 display-3 letter-spacing text-muted uppercase" id="palabra"></p>
+          <p class="text-center p-4 display-2 text-muted uppercase letter-spacing" id="letras" ></p>
+          <div class="offset-2 text-center">
+            <div class="btn-group">
               <a href="game.html" class="btn btn-primary text-center" id="nuevo"
                 >Nuevo juego</a
               >
@@ -66,16 +60,15 @@
           </div>
         </div>
       </div>
+    <div class="row">
+      <footer class="footer p-2 mt-4 text-center fixed-bottom">
+        <p class="text-muted">Jhonatan Alberto Padilla Rovira</p>
+        <small class="text-muted">2022 &copy;</small>
+      </footer>
     </div>
-    <footer class="footer p-2 mt-4 text-center fixed-bottom">
-      <p class="text-muted">Jhonatan Alberto Padilla Rovira</p>
-      <small class="text-muted">2022 &copy;</small>
-    </footer>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <script src="js/main.js" type="module"></script>
   </body>
 </html>
