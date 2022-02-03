@@ -39,6 +39,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function introducir_letra() {
   window.onkeydown = (e) => {
+
+    console.log(e.code);
+    console.log(e.key);
+    if(e.code == 'Enter' || e.code == 'Backspace' || e.code == 'ArrowUp'
+    || e.code === 'ArrowDown' || e.code === 'ArrowLeft'|| e.code === 'ArrowRight' || e.code === 'Shift' || e.code === 'CapsLock' || e.code === 'Tab' || e.code === 'ContextMenu' || e.code === 'Control', e.code === 'Meta' || e.code === 'Shift' || e.code === 'CapsLock') {
+      return false;
+    }else{
+      
     let letra = e.key.toLowerCase();
 
     let reg = /^[a-zA-Z]+$/;
@@ -54,6 +62,7 @@ function introducir_letra() {
         buscarLetra(letra);
       }
     }
+  }
   };
 }
 
