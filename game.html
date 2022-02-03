@@ -6,7 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ahorcado</title>
     <link rel="stylesheet" href="./css/normalize.css" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+<link rel="stylesheet" href="./css/generales.css" />
+<link rel="stylesheet" href="./css/game.css" />
     <link
       rel="stylesheet"
       href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
@@ -15,33 +22,60 @@
     />
   </head>
   <body>
-    <header>
-      <a href="https://www.aluracursos.com/" target="_blank">
-        <img src="./img/alura.png" alt="logo alura" />
-      </a>
-    </header>
+    <nav class="navbar navbar-light">
+      <div class="container">
+        <a
+          class="navbar-brand"
+          href="https://www.aluracursos.com/"
+          target="_blank"
+        >
+          <img
+            src="./img/alura.png"
+            alt=""
+            class="p-2"
+            width="48"
+            height="44"
+          />
+        </a>
+      </div>
+    </nav>
     <div class="container">
-      <canvas id="canva" width="400"></canvas>
-      <section class="status" id="status">
-        <p>Ganaste, <br> Felicidades</p>
-      </section>
-    </div>
-    <div class="group">
-      <p class="word" id="palabra"></p>
-      <p class="letters" id="letras"></p>
-      <div class="group-button">
-        <a href="game.html" class="btn btn-blue border-blue" id="nuevo"
-          >Nuevo juego</a
-        >
-        <a href="index.html" class="btn btn-white border-blue" id="desistir"
-          >Desistir</a
-        >
+      <div class="row">
+        <div class="col-md-8 col-sm-12 mx-auto">
+          <canvas id="canva"></canvas>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <section class="row col" id="status">
+            <!-- Aqui se muestra el mensaje -->
+          </section>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col ">
+          <p class="text-center p-4 display-3 letter-spacing text-muted" id="palabra"></p>
+          <p class="text-center p-4 display-2 text-muted" id="letras" ></p>
+          <div class="position-relative">
+            <div class="btn-group position-absolute top-50 start-50 translate-middle">
+              <a href="game.html" class="btn btn-primary text-center" id="nuevo"
+                >Nuevo juego</a
+              >
+              <a href="index.html" class="btn btn-outline-secondary text-center" id="desistir"
+                >Desistir</a
+              >
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <footer>
-      <p>Jhonatan Alberto Padilla Rovira</p>
-      <small>2022 &copy;</small>
+    <footer class="footer p-2 mt-4 text-center fixed-bottom">
+      <p class="text-muted">Jhonatan Alberto Padilla Rovira</p>
+      <small class="text-muted">2022 &copy;</small>
     </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
     <script src="js/main.js" type="module"></script>
   </body>
 </html>
