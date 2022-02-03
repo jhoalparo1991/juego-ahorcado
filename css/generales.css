@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,500;1,100;1,200&display=swap');
+
+:root{
+    --bg-color:#EFF1FA;
+    --dark-blue:#052051;
+    --ligth-blue:#0A3871;
+}
+
+body, nav{
+    background: var(--bg-color) !important;
+}
