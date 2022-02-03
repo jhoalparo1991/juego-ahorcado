@@ -9,3 +9,6 @@
 body, nav{
     background: var(--bg-color) !important;
 }
+.btn-primary{
+    background: var(--dark-blue)
+}

@@ -94,6 +94,9 @@ function validarPalabra(data) {
   });
   if(result){
     mensajes_juego("Ganó,\n Felicitaciones",status,'gano');
+    window.onkeydown = e=>{
+      return false;
+    };
   }
 }
 
@@ -103,6 +106,9 @@ function mostrarLetraIncorrecta(arr) {
 
   if(counter === 5){
     mensajes_juego("Fin del juego,\n Perdiste",status,'perdio');
+    window.onkeydown = e=>{
+      return false;
+    };
   }
 }
 

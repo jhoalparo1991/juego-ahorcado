@@ -2,7 +2,7 @@ export let WORDS = [
     "Cama",
     "Perro",
     "Alura",
-    "Challenge",
+    "Campo",
     "Latam",
     "Oracle",
     "Colombia",
@@ -17,10 +17,11 @@ export let WORDS = [
     "Plantas",
     "Gato",
     "Perro",
-    "Zanahoria",
+    "Paseo",
     "Ropa",
     "Paises",
-    "Continentes",
-    "Camilla"
+    "Java",
+    "Camilla",
+    "Gallina"
 ];
 
