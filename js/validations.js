@@ -46,11 +46,11 @@ export function mensajes_juego(mensaje,contenedor,tipo='perdio'){
     let p = document.createElement('p');
     p.textContent = mensaje;
     if(tipo === 'perdio'){
-        p.classList.remove('green')
-        p.classList.add('red');
+        p.classList.remove('alert','alert-success')
+        p.classList.add('alert','alert-danger');
     }else if(tipo === 'gano'){
-        p.classList.remove('red');
-        p.classList.add('green');
+        p.classList.remove('alert','alert-danger');
+        p.classList.add('alert','alert-success');
     }
     contenedor.appendChild(p);
 

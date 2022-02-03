@@ -13,6 +13,7 @@ let status = document.querySelector("#status");
 
 // Varibales
 let arrGuiones = [];
+let guiones = [];
 let arrLetras = [];
 let arrPalabra = [];
 let palabra_sorteo;
@@ -36,6 +37,8 @@ function dibujar_guiones(palabra_sorteo) {
   if (palabra_sorteo.length > 0) {
     let arr = palabra_sorteo.split("");
     arr.forEach((a) => {
+      arrGuiones.push(a);
+      guiones.push('_');
       palabra.textContent += "_";
     });
   }
@@ -85,6 +88,7 @@ function armarPalabra(arr) {
       if (letra_sorteo[i] === letra_arr[j]) {
         palabra_final = [...palabra_final, letra_arr[j]];
         validarPalabra(palabra_final);
+        mostrarLetrasCorrectas(palabra_final);
       }
     }
   }
@@ -95,19 +99,37 @@ function validarPalabra(data) {
   let result = arr.every((element) => {
     return data.includes(element);
   });
-  console.log(result);
-  return result;
+  if(result){
+    mensajes_juego("Ganó,\n Felicitaciones",status,'gano');
+  }
 }
 
 function mostrarLetraIncorrecta(arr) {
   let counter = arr.length;
-  
   ahorcado(canva,counter);
 
   if(counter === 5){
-    mensajes_juego('Fin del juego,\nPerdiste',status,'perdio');
+    mensajes_juego("Fin del juego,\n Perdiste",status,'perdio');
   }
 }
 
+
+function mostrarLetrasCorrectas(arr){
+  let le = arr.join('');
+  console.log(le);
+  let newArrPalabra = [];
+  if(!arrGuiones.includes(le)){
+    
+    //console.log(arr);
+    for(let i=0; i < arrGuiones.length; i++){
+      
+      for(let j=0; j< guiones.length; j++){
+        
+      }
+    }
+    //palabra.innerHTML = '';
+    //palabra.textContent = newArrPalabra;
+  }
+}
 
 
