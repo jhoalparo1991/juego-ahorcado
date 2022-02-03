@@ -15,3 +15,6 @@ canvas{
         margin: 0 -50px;
     }
 }
+.uppercase{
+    text-transform: uppercase;
+}
