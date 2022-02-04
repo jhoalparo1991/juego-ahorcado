@@ -25,3 +25,4 @@ export let WORDS = [
     "Gallina"
 ];
 
+export const ALFABETO = 'QWERTYUIOPASDFGHJKLZXCVBNM';
