@@ -5,30 +5,25 @@ import { ahorcado} from "./dibujo.js";
 // Elements html
 let palabra = document.querySelector("#palabra");
 let letras = document.querySelector("#letras");
-let btnNuevoJuego = document.querySelector("#nuevo");
-let btnDesistir = document.querySelector("#desistir");
-let main = document.querySelector("main");
 let canva = document.querySelector("#canva");
 let status = document.querySelector("#status");
 
 // Varibales
-let arrGuiones = [];
 let guiones = [];
 let arrLetras = [];
 let arrPalabra = [];
 let palabra_sorteo;
 let contador = 0;
 let letrasErroneas = [];
-let convertPalabraGuiones;
+let palabraGuiones;
 
 // Events
 document.addEventListener("DOMContentLoaded", () => {
   // Sortear palabra
   palabra_sorteo = sortear_palabra().toLowerCase();
-  console.log(palabra_sorteo);
   // Convertir la palabra en guines
-  convertPalabraGuiones = palabra_sorteo.replace(/./g, '_');
-  palabra.textContent = convertPalabraGuiones;
+  palabraGuiones = palabra_sorteo.replace(/./g, '_');
+  palabra.textContent = palabraGuiones;
   // Mostrar base de la horca
   ahorcado(canva,contador);
   // Introducir letra
@@ -40,8 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
 function introducir_letra() {
   window.onkeydown = (e) => {
 
-    console.log(e.code);
-    console.log(e.key);
     if(e.code == 'Enter' || e.code == 'Backspace' || e.code == 'ArrowUp'
     || e.code === 'ArrowDown' || e.code === 'ArrowLeft'|| e.code === 'ArrowRight' || e.code === 'Shift' || e.code === 'CapsLock' || e.code === 'Tab' || e.code === 'ContextMenu' || e.code === 'Control', e.code === 'Meta' || e.code === 'Shift' || e.code === 'CapsLock') {
       return false;
@@ -115,6 +108,8 @@ function mostrarLetraIncorrecta(arr) {
 
   if(counter === 5){
     mensajes_juego("Fin del juego,\n Perdiste",status,'perdio');
+    palabra.innerHTML = '';
+    palabra.innerHTML = 'La palabra era : ' +  palabra_sorteo;
     window.onkeydown = e=>{
       return false;
     };
@@ -123,9 +118,8 @@ function mostrarLetraIncorrecta(arr) {
 
 
 function mostrarLetrasCorrectas(palabra_final){
-let result;
 let posicionGuion;
- guiones = convertPalabraGuiones.split('');
+ guiones = palabraGuiones.split('');
   for(const sorteo in palabra_sorteo){
     for(const final in palabra_final){
       if(palabra_sorteo[sorteo] == palabra_final[final]){
