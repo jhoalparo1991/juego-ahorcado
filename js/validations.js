@@ -52,6 +52,7 @@ export function mensajes_juego(mensaje,contenedor,tipo='perdio'){
         p.classList.remove('alert','alert-danger');
         p.classList.add('alert','alert-success');
     }
+    contenedor.innerHTML = '';
     contenedor.appendChild(p);
 
     setTimeout(() =>{

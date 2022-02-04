@@ -18,3 +18,16 @@ canvas{
 .uppercase{
     text-transform: uppercase;
 }
+.size-button{
+    width: 50px;
+}
+
+
+
+.hiden{
+    display: none;
+}
+
+.visible{
+    display: block;
+}

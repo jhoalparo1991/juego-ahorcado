@@ -1,12 +1,14 @@
 // Imports
 import { sortear_palabra, mensajes_juego } from "./validations.js";
 import { ahorcado} from "./dibujo.js";
-
+import { ALFABETO } from './words.js'
 // Elements html
 let palabra = document.querySelector("#palabra");
 let letras = document.querySelector("#letras");
 let canva = document.querySelector("#canva");
 let status = document.querySelector("#status");
+let btnTeclado = document.querySelector("#mostrar-teclado");
+let keyboard = document.querySelector('#keyboard');
 
 // Varibales
 let guiones = [];
@@ -16,6 +18,7 @@ let palabra_sorteo;
 let contador = 0;
 let letrasErroneas = [];
 let palabraGuiones;
+let estadoTeclado = true;
 
 // Events
 document.addEventListener("DOMContentLoaded", () => {
@@ -27,13 +30,71 @@ document.addEventListener("DOMContentLoaded", () => {
   // Mostrar base de la horca
   ahorcado(canva,contador);
   // Introducir letra
-  introducir_letra();
+  introducir_letra(window);
+
+  //mostrar teclado
+  mostrarLetras();
+
+  btnTeclado.addEventListener('click', habilitarTeclado);
+
 });
 
-// Functions
+function habilitarTeclado(){
+  console.log('teclado');
+  if(estadoTeclado){
+    keyboard.classList.remove('hiden');
+    keyboard.classList.add('visible');
+    btnTeclado.classList.remove('btn-info');
+    btnTeclado.classList.add('btn-warning');
+    btnTeclado.textContent = 'Ocultar teclado';
 
-function introducir_letra() {
-  window.onkeydown = (e) => {
+    estadoTeclado = false;
+  }else{
+    keyboard.classList.remove('visible')
+    keyboard.classList.add('hiden');
+    btnTeclado.classList.remove('btn-warning')
+    btnTeclado.classList.add('btn-info')
+    btnTeclado.textContent = 'Mostrar teclado';
+    estadoTeclado = true;
+  }
+}
+
+
+
+// Functions
+function mostrarLetras(){
+  let letras = ALFABETO.split('');
+  letras.forEach( letra => {
+      let button = document.createElement('button');
+      button.textContent = letra;
+      button.classList.add('btn','btn-success','m-2','size-button')
+      button.onclick = introducirLetraTeclado
+      keyboard.appendChild(button);
+  });
+}
+
+function introducirLetraTeclado(e) {
+   
+    let letra = e.target.textContent.toLowerCase();
+
+    let reg = /^[a-zA-Z]+$/;
+    if (reg.test(letra)) {
+      if (!arrLetras.includes(letra)) {
+        let arr = palabra_sorteo.split("");
+        if (!arr.includes(letra)) {
+          letrasErroneas = [...letrasErroneas, letra];
+          letras.textContent = letrasErroneas;
+          mostrarLetraIncorrecta(letrasErroneas);
+        }
+        arrLetras = [...arrLetras, letra];
+        buscarLetra(letra);
+      }
+    }
+}
+
+function introducir_letra(evento) {
+  evento.onkeydown = (e) => {
+    console.log('Introducir letras');
 
     if(e.code == 'Enter' || e.code == 'Backspace' || e.code == 'ArrowUp'
     || e.code === 'ArrowDown' || e.code === 'ArrowLeft'|| e.code === 'ArrowRight' || e.code === 'Shift' || e.code === 'CapsLock' || e.code === 'Tab' || e.code === 'ContextMenu' || e.code === 'Control', e.code === 'Meta' || e.code === 'Shift' || e.code === 'CapsLock') {
@@ -96,6 +157,8 @@ function validarPalabra(data) {
   });
   if(result){
     mensajes_juego("Ganó,\n Felicitaciones",status,'gano');
+    estadoTeclado = false;
+    habilitarTeclado();
     window.onkeydown = e=>{
       return false;
     };
@@ -110,6 +173,8 @@ function mostrarLetraIncorrecta(arr) {
     mensajes_juego("Fin del juego,\n Perdiste",status,'perdio');
     palabra.innerHTML = '';
     palabra.innerHTML = 'La palabra era : ' +  palabra_sorteo;
+    estadoTeclado = false;
+    habilitarTeclado();
     window.onkeydown = e=>{
       return false;
     };
