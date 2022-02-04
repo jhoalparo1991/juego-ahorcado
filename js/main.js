@@ -1,5 +1,5 @@
 // Imports
-import { sortear_palabra, mensajes_juego } from "./validations.js";
+import { sortear_palabra, mensajes_juego,validar_teclas_especiales } from "./validations.js";
 import { ahorcado} from "./dibujo.js";
 import { ALFABETO } from './words.js'
 // Elements html
@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function habilitarTeclado(){
-  console.log('teclado');
   if(estadoTeclado){
     keyboard.classList.remove('hiden');
     keyboard.classList.add('visible');
@@ -94,15 +93,11 @@ function introducirLetraTeclado(e) {
 
 function introducir_letra(evento) {
   evento.onkeydown = (e) => {
-    console.log('Introducir letras');
 
-    if(e.code == 'Enter' || e.code == 'Backspace' || e.code == 'ArrowUp'
-    || e.code === 'ArrowDown' || e.code === 'ArrowLeft'|| e.code === 'ArrowRight' || e.code === 'Shift' || e.code === 'CapsLock' || e.code === 'Tab' || e.code === 'ContextMenu' || e.code === 'Control', e.code === 'Meta' || e.code === 'Shift' || e.code === 'CapsLock') {
+    if(!validar_teclas_especiales(e)){
       return false;
-    }else{
-      
+    }
     let letra = e.key.toLowerCase();
-
     let reg = /^[a-zA-Z]+$/;
     if (reg.test(letra)) {
       if (!arrLetras.includes(letra)) {
@@ -116,7 +111,6 @@ function introducir_letra(evento) {
         buscarLetra(letra);
       }
     }
-  }
   };
 }
 
