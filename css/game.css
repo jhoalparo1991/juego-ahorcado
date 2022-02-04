@@ -36,6 +36,13 @@ canvas{
     #mostrar-teclado{
         display: block;
     }
+
+    .group{
+        display: flex;
+        flex-direction: column;
+        padding:10px;
+        margin-top: 10px;
+    }
 }
 
 @media(max-width:750px){
@@ -43,4 +50,5 @@ canvas{
     #mostrar-teclado{
         display: block;
     }
+
 }
